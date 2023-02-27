@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Call;
-use App\Models\Lead;
-use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use DOMDocument;
@@ -194,7 +191,7 @@ class ScraperController extends Controller
     }
 
     public static function GetAllPages(){
-        $data=Page::all();
+        $data=Page::all()->sortByDesc('created_at');
         return $data;
     }
 }
